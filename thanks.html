@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>تم التسجيل بنجاح - مركز مسار التعليمي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#182310",
+                        "secondary": "#775a19",
+                        "surface": "#fbf9f8",
+                        "primary-container": "#2d3924",
+                        "secondary-container": "#fed488",
+                    },
+                    fontFamily: {
+                        "title": ["Noto Serif"],
+                        "body": ["Manrope"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .check-animation {
+            animation: scaleIn 0.5s ease-out;
+        }
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
+        <!-- Success Icon -->
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 check-animation">
+            <span class="material-symbols-outlined text-6xl text-green-600">check_circle</span>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="font-['Noto_Serif'] text-3xl font-bold text-primary mb-4">
+            تم التسجيل بنجاح!
+        </h1>
+        
+        <!-- Message -->
+        <p class="font-['Manrope'] text-lg text-gray-600 mb-2">
+            شكراً لتسجيلك في مركز مسار التعليمي
+        </p>
+        <p class="font-['Manrope'] text-gray-500 mb-8">
+            سنتواصل معك في أقرب وقت على رقم الهاتف المسجل
+        </p>
+        
+        <!-- Contact Info -->
+        <div class="bg-primary-container/10 rounded-xl p-4 mb-8">
+            <p class="font-['Manrope'] text-primary font-semibold mb-1">
+                للاستفسارات العاجلة:
+            </p>
+            <p class="font-['Manrope'] text-secondary text-lg font-bold">
+                01016337993
+            </p>
+            <p class="font-['Manrope'] text-gray-500 text-sm">
+                الأستاذ جمال عبدالناصر
+            </p>
+        </div>
+        
+        <!-- Back Button -->
+        <a href="index.html" 
+           class="inline-flex items-center gap-2 bg-secondary text-white px-8 py-4 rounded-xl font-['Manrope'] font-semibold hover:opacity-90 transition-all">
+            <span class="material-symbols-outlined">arrow_forward</span>
+            <span>العودة للموقع</span>
+        </a>
+    </div>
+</body>
+</html>

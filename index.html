@@ -294,7 +294,9 @@
         
         <!-- Modal Body -->
         <div class="p-6 space-y-5">
-            <form id="registrationForm" onsubmit="submitForm(event)">
+            <form id="registrationForm" action="https://formspree.io/f/xbdwlwoj" method="POST" onsubmit="submitForm(event)">
+                <!-- Hidden field for thank you page redirect -->
+                <input type="hidden" name="_next" value="https://moohmmedmoody310.github.io/masar/thanks.html">
                 <!-- Full Name -->
                 <div>
                     <label class="block text-primary font-title-sm text-title-sm mb-2">الاسم الكامل *</label>
@@ -440,59 +442,15 @@
         document.getElementById('errorMessage').classList.add('hidden');
     }
     
-    // Form Submission
+    // Form Submission - Using Formspree
     function submitForm(e) {
-        e.preventDefault();
-        
-        // Replace with your Google Apps Script Web App URL
-        // To set this up:
-        // 1. Go to https://script.google.com
-        // 2. Create new project with the script provided below
-        // 3. Deploy as Web App
-        // 4. Copy the URL and paste it here
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQKbtaZYVLxt_GRFEFhNxbrDmkd-1UrQi2tEA4RkS24T4XVFUBAbEr7O5foBj7E5s7Rg/exec';
-        
-        const formData = new FormData(e.target);
-        const data = {
-            fullName: formData.get('fullName'),
-            phone: formData.get('phone'),
-            email: formData.get('email'),
-            age: formData.get('age'),
-            program: formData.get('program'),
-            preferredTime: formData.get('preferredTime'),
-            notes: formData.get('notes'),
-            timestamp: new Date().toLocaleString('ar-EG')
-        };
-        
-        // Show loading
+        // Show loading state
         document.getElementById('submitBtn').classList.add('hidden');
         document.getElementById('loadingState').classList.remove('hidden');
         
-        // Send data to Google Sheets
-        fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(result => {
-            document.getElementById('loadingState').classList.add('hidden');
-            if (result.result === 'success') {
-                document.getElementById('successMessage').classList.remove('hidden');
-                setTimeout(closeModal, 3000);
-            } else {
-                document.getElementById('submitBtn').classList.remove('hidden');
-                document.getElementById('errorMessage').classList.remove('hidden');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('loadingState').classList.add('hidden');
-            document.getElementById('submitBtn').classList.remove('hidden');
-            document.getElementById('errorMessage').classList.remove('hidden');
-        });
+        // Let the form submit naturally to Formspree
+        // The form will redirect to thanks.html after submission
+        return true;
     }
 </script>
 
