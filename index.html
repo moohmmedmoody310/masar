@@ -189,6 +189,50 @@
         .nav-link.active::after {
             width: 100%;
         }
+        
+        /* Modern Islamic Card Design */
+        .program-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f5f5f0 100%);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .program-card:hover {
+            border-color: #C5A059;
+            box-shadow: 0 25px 50px -12px rgba(45, 57, 36, 0.25);
+        }
+        
+        /* Islamic Geometric Pattern Overlay */
+        .islamic-geometric {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(197, 160, 89, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(45, 57, 36, 0.1) 0%, transparent 50%);
+        }
+        
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Modern Button Styles */
+        .btn-islamic {
+            background: linear-gradient(135deg, #2D3924 0%, #1a2615 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-islamic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-islamic:hover::before {
+            left: 100%;
+        }
     </style>
 <style>
     body {
@@ -294,163 +338,243 @@
 </div>
 </div>
 </section>
-<!-- Services Section (Serene Cards) -->
-<section id="programs" class="py-stack-lg bg-surface-container-highest/30 reveal">
+<!-- Services Section (Modern Islamic Cards) -->
+<section id="programs" class="py-20 bg-gradient-to-b from-surface to-[#f5f0e8] reveal">
 <div class="max-w-7xl mx-auto px-8">
-<div class="text-center mb-stack-lg">
-<h3 class="font-headline-md text-headline-md text-primary mb-4">برامجنا التعليمية</h3>
-<div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+<div class="text-center mb-16">
+<span class="inline-block px-6 py-2 bg-primary text-white rounded-full text-sm font-bold mb-4 tracking-wide">برامجنا المميزة</span>
+<h3 class="font-['Noto_Serif'] text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">برامج تعليمية <span class="text-secondary">متكاملة</span></h3>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto">منهج متخصص يجمع بين الأصالة والمعاصرة لتخريج جيل قرآني متميز</p>
+<div class="flex items-center justify-center gap-4 mt-6">
+<div class="h-1 w-16 bg-secondary rounded-full"></div>
+<span class="material-symbols-outlined text-secondary text-2xl">mosque</span>
+<div class="h-1 w-16 bg-secondary rounded-full"></div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 <!-- Program 1: Foundation -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Foundation Program" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1573399054516-1a3490b4aa6b?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#2D3924] via-[#3d4f32] to-[#C5A059] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/20 absolute" viewBox="0 0 100 100">
+<path d="M50 10 L90 90 L10 90 Z" fill="currentColor"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">school</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">school</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">school</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">برنامج التأسيس</h4>
-<p class="text-on-surface-variant text-sm mb-4">من الحروف للقراءة: مراحل متدرجة (حروف - حركات - كلمات - قراءة مصحف) للأعمار قبل 6 سنوات</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">برنامج التأسيس</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">من الحروف للقراءة: مراحل متدرجة للأعمار قبل 6 سنوات</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">من 4 سنوات</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 
-<!-- Program 2: Quran Memorization with Similarities -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Quran Memorization" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1585664811087-47f3be0d46e8?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<!-- Program 2: Quran Memorization -->
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#1a2615] via-[#2D3924] to-[#3d4f32] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/20 absolute rotate-12" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2"/>
+<circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">menu_book</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">menu_book</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">menu_book</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">حفظ القرآن بالمتشابهات</h4>
-<p class="text-on-surface-variant text-sm mb-4">منهج متخصص لحفظ القرآن مع التركيز على الآيات المتشابهة لتجنب اللحن والتقاطع</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">حفظ المتشابهات</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">منهج متخصص لتجنب اللحن في الآيات المتشابهة</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">جميع الأعمار</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 
 <!-- Program 3: Tajweed -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Tajweed Program" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1594732832278-abd644401426?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#C5A059]/30 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#775a19] via-[#C5A059] to-[#fed488] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/30 absolute" viewBox="0 0 100 100">
+<path d="M20 50 Q50 20 80 50 Q50 80 20 50" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">record_voice_over</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">record_voice_over</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">record_voice_over</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">علم التجويد</h4>
-<p class="text-on-surface-variant text-sm mb-4">حفظ المتون التجويدية (الجزرية، الشاطبية) مع تطبيق عملي على القراءات العشر</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">علم التجويد</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">حفظ المتون مع تطبيق عملي على القراءات</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">متوسط</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 
 <!-- Program 4: Classical Arabic -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Fus'ha Program" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#3d4f32] via-[#2D3924] to-[#1a2615] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/20 absolute" viewBox="0 0 100 100">
+<rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(45 50 50)"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">translate</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">translate</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">translate</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">التحدث بالفصحى</h4>
-<p class="text-on-surface-variant text-sm mb-4">تدريب عملي على المحادثة باللغة العربية الفصحى مع تمارين نطق وإملاء</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">التحدث بالفصحى</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">تدريب عملي على النطق والمحادثة الصحيحة</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">جميع المستويات</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 
 <!-- Program 5: Behavioral -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Behavioral Program" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1529390079861-591dead354df?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#C5A059]/30 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#C5A059] via-[#775a19] to-[#2D3924] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/20 absolute" viewBox="0 0 100 100">
+<polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">diversity_3</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">diversity_3</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">diversity_3</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">البرنامج السلوكي</h4>
-<p class="text-on-surface-variant text-sm mb-4">محاضرات أسبوعية ومراقبة ميدانية للأخلاق الإسلامية والسلوك القويم</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">البرنامج السلوكي</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">محاضرات أسبوعية للأخلاق الإسلامية</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">أسبوعي</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 
 <!-- Program 6: Character Building -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Character Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#2D3924] via-[#1a2615] to-[#3d4f32] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/20 absolute rotate-45" viewBox="0 0 100 100">
+<rect x="20" y="20" width="60" height="60" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">psychology</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">psychology</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">psychology</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">بناء شخصية الحفظة</h4>
-<p class="text-on-surface-variant text-sm mb-4">بناء علمي متكامل لحفظة القرآن من خلال العلوم الشرعية (فقه، عقيدة، سيرة)</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">بناء الشخصية</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">علوم شرعية متكاملة لفهم القرآن</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">متقدم</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 
 <!-- Program 7: Psychological Building -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Psychological Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#C5A059]/30 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#fed488] via-[#C5A059] to-[#775a19] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/30 absolute" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<circle cx="50" cy="50" r="15" fill="currentColor"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">sentiment_very_satisfied</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">sentiment_very_satisfied</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">sentiment_very_satisfied</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">البناء النفسي</h4>
-<p class="text-on-surface-variant text-sm mb-4">تدريب الطلاب على التفاعل والتعاون والمنافسة الصحية داخل المركز وخارجه</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">البناء النفسي</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">تدريب على التفاعل والتعاون والمنافسة</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">تفاعلي</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 
 <!-- Program 8: Talents -->
-<div class="bg-surface-container-lowest rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift overflow-hidden">
-<div class="h-48 overflow-hidden relative">
-<img alt="Talents Program" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=800&amp;auto=format&amp;fit=crop">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden border border-[#C5A059]/20">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+<div class="relative h-40 bg-gradient-to-br from-[#2D3924] via-[#775a19] to-[#C5A059] flex items-center justify-center overflow-hidden">
+<svg class="w-24 h-24 text-white/20 absolute" viewBox="0 0 100 100">
+<polygon points="50,5 61,40 98,40 68,62 79,97 50,75 21,97 32,62 2,40 39,40" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+<span class="material-symbols-outlined text-6xl text-white relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">star</span>
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
 </div>
-<div class="p-6">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-secondary text-2xl">star</span>
+<div class="p-6 relative">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">star</span>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-2">برنامج المواهب</h4>
-<p class="text-on-surface-variant text-sm mb-4">اكتشاف المواهب الصوتية والإذاعية والدعوية وتدريب أصحابها وتمكينهم</p>
-<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-<span>سجل الآن</span>
-<span class="material-symbols-outlined">chevron_left</span>
+<h4 class="font-['Noto_Serif'] text-lg font-bold text-primary">برنامج المواهب</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">اكتشاف وتنمية المواهب الصوتية والدعوية</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-secondary bg-secondary-container px-3 py-1 rounded-full">تمكين</span>
+<button onclick="openModal()" class="text-secondary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all group/btn">
+<span>سجل</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform">chevron_left</span>
 </button>
+</div>
 </div>
 </div>
 </div>
@@ -537,9 +661,9 @@
         
         <!-- Modal Body -->
         <div class="p-6 space-y-5">
-            <form id="registrationForm" action="https://formspree.io/f/xbdwlwoj" method="POST" onsubmit="submitForm(event)">
-                <!-- Hidden field for thank you page redirect -->
-                <input type="hidden" name="_next" value="https://moohmmedmoody310.github.io/masar/thanks.html">
+            <form id="registrationForm" onsubmit="submitForm(event)">
+                <!-- Google Script URL - سيتم إدخاله بعد إنشاء الـ Script -->
+                <input type="hidden" id="GOOGLE_SCRIPT_URL" value="YOUR_GOOGLE_SCRIPT_URL_HERE">
                 <!-- Full Name -->
                 <div>
                     <label class="block text-primary font-title-sm text-title-sm mb-2">الاسم الكامل *</label>
@@ -685,15 +809,68 @@
         document.getElementById('errorMessage').classList.add('hidden');
     }
     
-    // Form Submission - Using Formspree
-    function submitForm(e) {
+    // Google Sheets Configuration
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwtUKO_BFP_3HK1suF0BWbtvHhsfB4VNjrkb_PDRCMoQWVDucG7kB9Z0V9qj24lyphYgg/exec"; // رابط Google Script
+    
+    // Form Submission - Using Google Sheets
+    async function submitForm(e) {
+        e.preventDefault();
+        
         // Show loading state
         document.getElementById('submitBtn').classList.add('hidden');
         document.getElementById('loadingState').classList.remove('hidden');
+        document.getElementById('errorMessage').classList.add('hidden');
         
-        // Let the form submit naturally to Formspree
-        // The form will redirect to thanks.html after submission
-        return true;
+        // Get form data
+        const formData = {
+            name: document.getElementById('studentName').value,
+            phone: document.getElementById('phone').value,
+            program: document.getElementById('program').value,
+            age: document.getElementById('age').value
+        };
+        
+        // Check if URL is still the placeholder
+        if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_SCRIPT_URL_HERE") {
+            document.getElementById('loadingState').classList.add('hidden');
+            document.getElementById('submitBtn').classList.remove('hidden');
+            document.getElementById('errorMessage').textContent = "عذراً، لم يتم ربط الموقع بالـ Google Sheet بعد. يرجى اتباع خطوات الإعداد في ملف SETUP_SHEET.md";
+            document.getElementById('errorMessage').classList.remove('hidden');
+            return;
+        }
+        
+        try {
+            // Send to Google Sheets
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.result === "success") {
+                // Show success
+                document.getElementById('loadingState').classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+                
+                // Redirect to thanks page after 1 second
+                setTimeout(() => {
+                    window.location.href = 'thanks.html';
+                }, 1000);
+                
+            } else {
+                throw new Error(result.message || "حدث خطأ");
+            }
+            
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('loadingState').classList.add('hidden');
+            document.getElementById('submitBtn').classList.remove('hidden');
+            document.getElementById('errorMessage').textContent = "حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة.";
+            document.getElementById('errorMessage').classList.remove('hidden');
+        }
     }
     
     // Mobile Menu Toggle
