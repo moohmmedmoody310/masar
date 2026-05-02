@@ -97,6 +97,9 @@
         }
     </script>
 <style>
+        * {
+            scroll-behavior: smooth;
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
@@ -113,6 +116,79 @@
             background-size: cover;
             background-position: center;
         }
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+        .animate-slide-in { animation: slideInRight 0.8s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse 2s ease-in-out infinite; }
+        
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hover Effects */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #2D3924 0%, #C5A059 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Active Nav Link */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #C5A059;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
     </style>
 <style>
     body {
@@ -122,51 +198,72 @@
   </head>
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
 <!-- TopAppBar Navigation Shell -->
-<header class="bg-[#fdfcfb] dark:bg-stone-950 sticky top-0 z-50 border-b border-[#C5A059]/20">
+<header class="bg-[#fdfcfb]/95 backdrop-blur-md dark:bg-stone-950 sticky top-0 z-50 border-b border-[#C5A059]/20 shadow-sm">
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-[#2D3924]" data-icon="menu">menu</span>
-<h1 class="font-['Noto_Serif'] text-2xl font-bold text-[#2D3924] dark:text-[#C5A059]">مركز مسار التعليمي</h1>
+<!-- Mobile Menu Button -->
+<button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[#2D3924] text-2xl" id="menuIcon">menu</span>
+</button>
+<a href="#home" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#C5A059] text-3xl">mosque</span>
+<h1 class="font-['Noto_Serif'] text-2xl font-bold text-[#2D3924] dark:text-[#C5A059]">مركز مسار</h1>
+</a>
 </div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#C5A059] border-b-2 border-[#C5A059] pb-1" href="#">الرئيسية</a>
-<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors" href="#">البرامج التعليمية</a>
-<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors" href="#">عن المركز</a>
-<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors" href="#">اتصل بنا</a>
+<a class="nav-link font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#C5A059] active pb-1" href="#home">الرئيسية</a>
+<a class="nav-link font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors pb-1" href="#programs">البرامج</a>
+<a class="nav-link font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors pb-1" href="#about">عن المركز</a>
+<a class="nav-link font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors pb-1" href="#contact">اتصل بنا</a>
 </nav>
-<button onclick="openModal()" class="bg-primary-container text-white px-6 py-2 rounded-lg font-label-caps text-label-caps hover:bg-primary transition-all duration-300 ease-in-out">
+<button onclick="openModal()" class="bg-primary-container text-white px-6 py-2 rounded-lg font-label-caps text-label-caps hover:bg-primary transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-0.5">
                 سجل الآن
             </button>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden md:hidden bg-[#fdfcfb] border-t border-[#C5A059]/20">
+<div class="px-8 py-4 space-y-3">
+<a href="#home" class="block py-2 text-[#2D3924] hover:text-[#C5A059] transition-colors font-semibold">الرئيسية</a>
+<a href="#programs" class="block py-2 text-[#2D3924] hover:text-[#C5A059] transition-colors font-semibold">البرامج</a>
+<a href="#about" class="block py-2 text-[#2D3924] hover:text-[#C5A059] transition-colors font-semibold">عن المركز</a>
+<a href="#contact" class="block py-2 text-[#2D3924] hover:text-[#C5A059] transition-colors font-semibold">اتصل بنا</a>
+</div>
 </div>
 </header>
 <main>
 <!-- Hero Section -->
-<section class="relative min-h-[707px] flex items-center justify-center overflow-hidden">
-<div class="absolute inset-0 hero-gradient" data-alt="A serene and expansive interior of a modern grand mosque, with soft natural light streaming through intricate mashrabiya windows creating geometric shadows on the polished marble floor. The atmosphere is peaceful, academic, and spiritual, using a color palette of soft creams, pale olives, and warm gold accents to evoke a sense of Sakinah."></div>
+<section id="home" class="relative min-h-[707px] flex items-center justify-center overflow-hidden">
+<!-- Video Background -->
+<video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" poster="https://images.unsplash.com/photo-1590076175571-4b5459ef2d77?q=80&w=2070&auto=format&fit=crop">
+<source src="background-video.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 bg-surface/85"></div>
 <div class="absolute inset-0 islamic-pattern"></div>
 <div class="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-stack-md">
-<div class="inline-block px-4 py-1 border border-secondary text-secondary rounded-full font-label-caps text-label-caps mb-4">
+<div class="inline-block px-4 py-1 border border-secondary text-secondary rounded-full font-label-caps text-label-caps mb-4 animate-fade-in-up" style="animation-delay: 0.1s">
                     مرحباً بكم في صرح العلم والإيمان
                 </div>
-<h2 class="font-display-lg text-display-lg text-primary leading-tight">
+<h2 class="font-display-lg text-display-lg text-primary leading-tight animate-fade-in-up" style="animation-delay: 0.3s">
                     طريقك لتعلم القرآن الكريم والعلوم الشرعية برؤية عصرية
                 </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.5s">
                     نهدف في مركز مسار إلى تقديم تجربة تعليمية فريدة تجمع بين أصالة المنهج وحداثة الوسائل، لجيل يعتز بهويته ويخدم مجتمعه.
                 </p>
-<div class="flex flex-col md:flex-row gap-gutter justify-center pt-unit">
-<button onclick="openModal()" class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-title-sm text-title-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<div class="flex flex-col md:flex-row gap-gutter justify-center pt-unit animate-fade-in-up" style="animation-delay: 0.7s">
+<button onclick="openModal()" class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-title-sm text-title-sm hover:opacity-90 transition-all flex items-center justify-center gap-2 hover:shadow-xl hover:-translate-y-1 animate-pulse-slow">
 <span>ابدأ رحلتك التعليمية</span>
 <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
 </button>
-<button class="border-2 border-primary text-primary px-8 py-4 rounded-xl font-title-sm text-title-sm hover:bg-primary-fixed transition-all">
-                        تصفح البرامج
-                    </button>
+<a href="#programs" class="border-2 border-primary text-primary px-8 py-4 rounded-xl font-title-sm text-title-sm hover:bg-primary-fixed transition-all flex items-center justify-center gap-2 hover:shadow-lg hover:-translate-y-1">
+<span>تصفح البرامج</span>
+<span class="material-symbols-outlined">expand_more</span>
+</a>
 </div>
 </div>
 </section>
 <!-- Vision Section (Bento Grid) -->
-<section class="py-stack-lg max-w-7xl mx-auto px-8">
+<section id="about" class="py-stack-lg max-w-7xl mx-auto px-8 reveal">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
 <div class="md:col-span-8 bg-surface-container-low p-stack-md rounded-xl border border-secondary/10 flex flex-col justify-center">
 <span class="text-secondary font-label-caps text-label-caps mb-4">رؤيتنا ورسالتنا</span>
@@ -198,7 +295,7 @@
 </div>
 </section>
 <!-- Services Section (Serene Cards) -->
-<section class="py-stack-lg bg-surface-container-highest/30">
+<section id="programs" class="py-stack-lg bg-surface-container-highest/30 reveal">
 <div class="max-w-7xl mx-auto px-8">
 <div class="text-center mb-stack-lg">
 <h3 class="font-headline-md text-headline-md text-primary mb-4">برامجنا التعليمية</h3>
@@ -206,56 +303,61 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Card 1 -->
-<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-lg">
-<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift">
+<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 animate-float" style="animation-delay: 0s">
 <span class="material-symbols-outlined text-primary text-4xl" data-icon="menu_book">menu_book</span>
 </div>
 <h4 class="font-title-sm text-title-sm text-primary mb-4">تحفيظ القرآن الكريم</h4>
 <p class="text-on-surface-variant mb-6">برامج مخصصة لمختلف الفئات العمرية، مع التركيز على التجويد والترتيل الصحيح بروايات متعددة.</p>
-<a class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">
-<span>اكتشف المزيد</span>
-<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
-</a>
+<button onclick="openModal()" class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all group/btn">
+<span>سجل الآن</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform" data-icon="chevron_left">chevron_left</span>
+</button>
 </div>
 <!-- Card 2 -->
-<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-lg">
-<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift">
+<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 animate-float" style="animation-delay: 0.5s">
 <span class="material-symbols-outlined text-primary text-4xl" data-icon="library_books">library_books</span>
 </div>
 <h4 class="font-title-sm text-title-sm text-primary mb-4">العلوم الشرعية</h4>
 <p class="text-on-surface-variant mb-6">دراسة الفقه، التفسير، الحديث، والعقيدة، من خلال مناهج أكاديمية ميسرة تعزز الفهم الوسطي.</p>
-<a class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">
-<span>اكتشف المزيد</span>
-<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
-</a>
+<button onclick="openModal()" class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all group/btn">
+<span>سجل الآن</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform" data-icon="chevron_left">chevron_left</span>
+</button>
 </div>
 <!-- Card 3 -->
-<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-lg">
-<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-xl hover:-translate-y-2 hover-lift">
+<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 animate-float" style="animation-delay: 1s">
 <span class="material-symbols-outlined text-primary text-4xl" data-icon="stars">stars</span>
 </div>
 <h4 class="font-title-sm text-title-sm text-primary mb-4">تأهيل الدعاة</h4>
 <p class="text-on-surface-variant mb-6">برنامج مكثف لتطوير المهارات القيادية والخطابية، مع التركيز على أساليب الدعوة المعاصرة.</p>
-<a class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">
-<span>اكتشف المزيد</span>
-<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
-</a>
+<button onclick="openModal()" class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all group/btn">
+<span>سجل الآن</span>
+<span class="material-symbols-outlined group-hover/btn:-translate-x-1 transition-transform" data-icon="chevron_left">chevron_left</span>
+</button>
 </div>
 </div>
 </div>
 </section>
 <!-- CTA Section -->
-<section class="py-stack-lg">
+<section id="contact" class="py-stack-lg reveal">
 <div class="max-w-7xl mx-auto px-8">
 <div class="bg-primary-container rounded-3xl p-stack-lg relative overflow-hidden flex flex-col items-center text-center">
 <div class="absolute inset-0 islamic-pattern opacity-10"></div>
 <div class="relative z-10 space-y-stack-sm max-w-2xl">
 <h3 class="font-headline-md text-headline-md text-white">هل أنت مستعد لبدء رحلتك؟</h3>
 <p class="text-primary-fixed font-body-lg text-body-lg">انضم إلى مئات الطلاب الذين اختاروا مسار التعليمي ليكون بوصلتهم في تعلم العلوم الشرعية.</p>
-<div class="pt-8">
-<button onclick="openModal()" class="bg-[#C5A059] text-primary px-10 py-5 rounded-full font-headline-md text-title-sm font-bold shadow-xl hover:bg-secondary-fixed transition-all hover:-translate-y-1">
-                                سجل بياناتك الآن
-                            </button>
+<div class="pt-8 flex flex-col md:flex-row gap-4 justify-center">
+<button onclick="openModal()" class="bg-[#C5A059] text-primary px-10 py-5 rounded-full font-headline-md text-title-sm font-bold shadow-xl hover:bg-secondary-fixed transition-all hover:-translate-y-1 animate-pulse-slow">
+                            سجل بياناتك الآن
+                        </button>
+<a href="https://wa.me/201099417585" target="_blank" class="bg-green-500 text-white px-8 py-5 rounded-full font-headline-md text-title-sm font-bold shadow-xl hover:bg-green-600 transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            تواصل واتساب
+                        </a>
+</div>
 </div>
 </div>
 </div>
@@ -263,21 +365,47 @@
 </section>
 </main>
 <!-- Footer Navigation Shell -->
-<footer class="bg-[#2D3924] dark:bg-stone-950 w-full py-12 px-8 flex flex-col items-center text-center space-y-6 border-t-4 border-[#C5A059]">
-<div class="font-['Noto_Serif'] text-[#fdfcfb] font-bold text-xl">مركز مسار التعليمي</div>
+<footer class="bg-gradient-to-b from-[#2D3924] to-[#1a2615] dark:bg-stone-950 w-full py-12 px-8 flex flex-col items-center text-center space-y-6 border-t-4 border-[#C5A059]">
+<div class="animate-float">
+<span class="material-symbols-outlined text-[#C5A059] text-5xl mb-2">mosque</span>
+</div>
+<div class="font-['Noto_Serif'] text-[#fdfcfb] font-bold text-2xl">مركز مسار التعليمي</div>
 <nav class="flex flex-wrap justify-center gap-8">
-<a class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors" href="#">سياسة الخصوصية</a>
-<a class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors" href="#">شروط الاستخدام</a>
-<a class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors" href="#">خريطة الموقع</a>
+<a href="#home" class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors hover:translate-y-[-2px] inline-block">الرئيسية</a>
+<a href="#programs" class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors hover:translate-y-[-2px] inline-block">البرامج</a>
+<a href="#about" class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors hover:translate-y-[-2px] inline-block">عن المركز</a>
+<a href="#contact" class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors hover:translate-y-[-2px] inline-block">اتصل بنا</a>
 </nav>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-[#C5A059] cursor-pointer hover:text-white transition-colors" data-icon="facebook">social_leaderboard</span>
-<span class="material-symbols-outlined text-[#C5A059] cursor-pointer hover:text-white transition-colors" data-icon="share">share</span>
-<span class="material-symbols-outlined text-[#C5A059] cursor-pointer hover:text-white transition-colors" data-icon="mail">mail</span>
+<a href="tel:01016337993" class="w-10 h-10 bg-[#C5A059]/20 rounded-full flex items-center justify-center hover:bg-[#C5A059] hover:text-[#2D3924] transition-all duration-300 hover:scale-110">
+<span class="material-symbols-outlined text-[#C5A059] hover:text-[#2D3924]">phone</span>
+</a>
+<a href="https://wa.me/201016337993" target="_blank" class="w-10 h-10 bg-[#C5A059]/20 rounded-full flex items-center justify-center hover:bg-[#C5A059] hover:text-[#2D3924] transition-all duration-300 hover:scale-110" title="تواصل مع الأستاذ جمال">
+<span class="material-symbols-outlined text-[#C5A059] hover:text-[#2D3924]">chat</span>
+</a>
+<a href="https://wa.me/201099417585" target="_blank" class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center hover:bg-green-500 hover:text-white transition-all duration-300 hover:scale-110" title="تواصل واتساب - 01099417585">
+<svg class="w-5 h-5 text-green-500 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<a href="mailto:contact@massar.com" class="w-10 h-10 bg-[#C5A059]/20 rounded-full flex items-center justify-center hover:bg-[#C5A059] hover:text-[#2D3924] transition-all duration-300 hover:scale-110">
+<span class="material-symbols-outlined text-[#C5A059] hover:text-[#2D3924]">email</span>
+</a>
 </div>
-<div class="font-['Noto_Serif'] text-sm leading-relaxed text-[#C5A059] border-t border-[#fdfcfb]/10 pt-6 w-full max-w-2xl">
-            © 2024 مركز مسار التعليمي. جميع الحقوق محفوظة. الأستاذ جمال عبدالناصر 01016337993
-        </div>
+<!-- Main Footer Content -->
+<div class="font-['Noto_Serif'] text-sm leading-relaxed text-[#C5A059] border-t border-[#fdfcfb]/10 pt-6 w-full max-w-2xl space-y-2">
+<p>© 2024 مركز مسار التعليمي. جميع الحقوق محفوظة.</p>
+<div class="flex flex-col gap-1">
+<p class="text-white/80">الأستاذ جمال عبدالناصر: <a href="tel:01016337993" class="text-[#C5A059] hover:text-white transition-colors">01016337993</a></p>
+<p class="text-white/60 text-xs">واتساب: <a href="https://wa.me/201099417585" target="_blank" class="text-green-400 hover:text-green-300 transition-colors">01099417585</a></p>
+</div>
+</div>
+<!-- Developer Credit -->
+<div class="bg-[#C5A059]/10 rounded-xl px-6 py-3 mt-4 border border-[#C5A059]/30 hover:border-[#C5A059] transition-all duration-300">
+<p class="font-['Manrope'] text-xs text-[#C5A059]/80 mb-1">تصميم وبرمجة</p>
+<p class="font-['Noto_Serif'] text-sm text-white font-semibold">محمد عبدالناصر</p>
+<p class="font-['Manrope'] text-xs text-[#C5A059]/60 mt-1">
+<a href="tel:01016337993" class="hover:text-[#C5A059] transition-colors">01016337993</a>
+</p>
+</div>
 </footer>
 
 <!-- Registration Modal -->
@@ -452,6 +580,82 @@
         // The form will redirect to thanks.html after submission
         return true;
     }
+    
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const icon = document.getElementById('menuIcon');
+        
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            icon.textContent = 'close';
+        } else {
+            menu.classList.add('hidden');
+            icon.textContent = 'menu';
+        }
+    }
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.add('hidden');
+            document.getElementById('menuIcon').textContent = 'menu';
+        });
+    });
+    
+    // Scroll Reveal Animation
+    function reveal() {
+        var reveals = document.querySelectorAll('.reveal');
+        
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    
+    window.addEventListener('scroll', reveal);
+    reveal(); // Check on load
+    
+    // Active Navigation Link
+    function updateActiveNav() {
+        const sections = ['home', 'about', 'programs', 'contact'];
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let current = '';
+        sections.forEach(section => {
+            const element = document.getElementById(section);
+            if (element) {
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    current = section;
+                }
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active', 'text-[#C5A059]', 'border-b-2', 'border-[#C5A059]');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active', 'text-[#C5A059]');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Check on load
+    
+    // Add parallax effect to hero
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-gradient');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
 </script>
 
 </body></html>

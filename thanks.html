@@ -27,28 +27,60 @@
         }
     </script>
     <style>
+        * {
+            scroll-behavior: smooth;
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
         .check-animation {
-            animation: scaleIn 0.5s ease-out;
+            animation: scaleIn 0.6s ease-out;
         }
         @keyframes scaleIn {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); opacity: 1; }
+            0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(10deg); }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(197, 160, 89, 0); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .animate-pulse-ring {
+            animation: pulse 2s infinite;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #fbf9f8 0%, #d9e7c9 50%, #fbf9f8 100%);
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
-<body class="bg-surface min-h-screen flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 max-w-md w-full text-center border border-[#C5A059]/20 hover:shadow-3xl transition-all duration-500">
         <!-- Success Icon -->
-        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 check-animation">
-            <span class="material-symbols-outlined text-6xl text-green-600">check_circle</span>
+        <div class="relative mb-6">
+            <div class="w-28 h-28 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto animate-pulse-ring check-animation animate-float">
+                <span class="material-symbols-outlined text-7xl text-white">check_circle</span>
+            </div>
+            <!-- Decorative elements -->
+            <div class="absolute top-0 right-1/4 w-3 h-3 bg-[#C5A059] rounded-full animate-float" style="animation-delay: 0.5s"></div>
+            <div class="absolute bottom-4 left-1/4 w-2 h-2 bg-[#2D3924] rounded-full animate-float" style="animation-delay: 1s"></div>
         </div>
         
         <!-- Title -->
-        <h1 class="font-['Noto_Serif'] text-3xl font-bold text-primary mb-4">
+        <h1 class="font-['Noto_Serif'] text-3xl font-bold text-primary mb-4 animate-fade-in">
             تم التسجيل بنجاح!
         </h1>
         
@@ -61,24 +93,39 @@
         </p>
         
         <!-- Contact Info -->
-        <div class="bg-primary-container/10 rounded-xl p-4 mb-8">
-            <p class="font-['Manrope'] text-primary font-semibold mb-1">
-                للاستفسارات العاجلة:
+        <div class="bg-gradient-to-r from-primary-container/20 to-secondary-container/20 rounded-2xl p-5 mb-6 border border-[#C5A059]/20">
+            <p class="font-['Manrope'] text-primary font-semibold mb-2 flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[#C5A059]">phone</span>
+                للاستفسارات العاجلة
             </p>
-            <p class="font-['Manrope'] text-secondary text-lg font-bold">
+            <a href="tel:01016337993" class="font-['Manrope'] text-secondary text-2xl font-bold hover:text-[#2D3924] transition-colors block mb-1">
                 01016337993
-            </p>
+            </a>
             <p class="font-['Manrope'] text-gray-500 text-sm">
                 الأستاذ جمال عبدالناصر
             </p>
         </div>
         
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/201016337993" target="_blank" 
+           class="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-xl font-['Manrope'] font-semibold hover:bg-green-600 transition-all mb-4 w-full justify-center">
+            <span class="material-symbols-outlined">chat</span>
+            <span>تواصل عبر واتساب</span>
+        </a>
+        
         <!-- Back Button -->
         <a href="index.html" 
-           class="inline-flex items-center gap-2 bg-secondary text-white px-8 py-4 rounded-xl font-['Manrope'] font-semibold hover:opacity-90 transition-all">
+           class="inline-flex items-center gap-2 bg-secondary text-white px-8 py-4 rounded-xl font-['Manrope'] font-semibold hover:bg-[#2D3924] transition-all hover:shadow-lg hover:-translate-y-1">
             <span class="material-symbols-outlined">arrow_forward</span>
             <span>العودة للموقع</span>
         </a>
+        
+        <!-- Developer Credit -->
+        <div class="mt-8 pt-6 border-t border-gray-200">
+            <p class="font-['Manrope'] text-xs text-gray-400 mb-1">تصميم وبرمجة</p>
+            <p class="font-['Noto_Serif'] text-sm text-[#2D3924] font-semibold">محمد عبدالناصر</p>
+            <a href="tel:01016337993" class="font-['Manrope'] text-xs text-gray-400 hover:text-[#C5A059] transition-colors">01016337993</a>
+        </div>
     </div>
 </body>
 </html>
