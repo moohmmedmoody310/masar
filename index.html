@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d9e7c9",
+                        "surface": "#fbf9f8",
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f8",
+                        "surface-variant": "#e4e2e2",
+                        "tertiary-fixed-dim": "#c8c6c2",
+                        "on-secondary-container": "#785a1a",
+                        "on-surface-variant": "#454840",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#261900",
+                        "on-surface": "#1b1c1c",
+                        "on-primary-container": "#95a387",
+                        "surface-container-low": "#f5f3f3",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#353633",
+                        "primary": "#182310",
+                        "secondary": "#775a19",
+                        "tertiary": "#20211e",
+                        "surface-tint": "#55624a",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fbf9f8",
+                        "outline-variant": "#c5c8bd",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dbd9d9",
+                        "surface-container-high": "#eae8e7",
+                        "inverse-surface": "#303030",
+                        "secondary-container": "#fed488",
+                        "on-tertiary-fixed": "#1b1c19",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffdea5",
+                        "tertiary-fixed": "#e4e2dd",
+                        "inverse-primary": "#bdcbae",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#bdcbae",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-primary-fixed-variant": "#3e4a34",
+                        "primary-container": "#2d3924",
+                        "surface-container": "#efeded",
+                        "secondary-fixed-dim": "#e9c176",
+                        "on-primary-fixed": "#131f0c",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-tertiary-container": "#9f9e9a",
+                        "outline": "#75786f",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#474744"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "16px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "stack-md": "32px",
+                        "stack-lg": "64px"
+                    },
+                    "fontFamily": {
+                        "title-sm": ["Noto Serif"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Noto Serif"],
+                        "label-caps": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "title-sm": ["20px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .islamic-pattern {
+            background-color: transparent;
+            background-image: radial-gradient(#C5A059 0.5px, transparent 0.5px), radial-gradient(#C5A059 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(251, 249, 248, 0.9), rgba(251, 249, 248, 0.7)), url('https://images.unsplash.com/photo-1590076175571-4b5459ef2d77?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar Navigation Shell -->
+<header class="bg-[#fdfcfb] dark:bg-stone-950 sticky top-0 z-50 border-b border-[#C5A059]/20">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#2D3924]" data-icon="menu">menu</span>
+<h1 class="font-['Noto_Serif'] text-2xl font-bold text-[#2D3924] dark:text-[#C5A059]">مركز مسار التعليمي</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#C5A059] border-b-2 border-[#C5A059] pb-1" href="#">الرئيسية</a>
+<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors" href="#">البرامج التعليمية</a>
+<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors" href="#">عن المركز</a>
+<a class="font-['Noto_Serif'] tracking-wide uppercase text-sm font-semibold text-[#2D3924] dark:text-stone-300 hover:text-[#C5A059] transition-colors" href="#">اتصل بنا</a>
+</nav>
+<button onclick="openModal()" class="bg-primary-container text-white px-6 py-2 rounded-lg font-label-caps text-label-caps hover:bg-primary transition-all duration-300 ease-in-out">
+                سجل الآن
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[707px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 hero-gradient" data-alt="A serene and expansive interior of a modern grand mosque, with soft natural light streaming through intricate mashrabiya windows creating geometric shadows on the polished marble floor. The atmosphere is peaceful, academic, and spiritual, using a color palette of soft creams, pale olives, and warm gold accents to evoke a sense of Sakinah."></div>
+<div class="absolute inset-0 islamic-pattern"></div>
+<div class="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-stack-md">
+<div class="inline-block px-4 py-1 border border-secondary text-secondary rounded-full font-label-caps text-label-caps mb-4">
+                    مرحباً بكم في صرح العلم والإيمان
+                </div>
+<h2 class="font-display-lg text-display-lg text-primary leading-tight">
+                    طريقك لتعلم القرآن الكريم والعلوم الشرعية برؤية عصرية
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    نهدف في مركز مسار إلى تقديم تجربة تعليمية فريدة تجمع بين أصالة المنهج وحداثة الوسائل، لجيل يعتز بهويته ويخدم مجتمعه.
+                </p>
+<div class="flex flex-col md:flex-row gap-gutter justify-center pt-unit">
+<button onclick="openModal()" class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-title-sm text-title-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span>ابدأ رحلتك التعليمية</span>
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<button class="border-2 border-primary text-primary px-8 py-4 rounded-xl font-title-sm text-title-sm hover:bg-primary-fixed transition-all">
+                        تصفح البرامج
+                    </button>
+</div>
+</div>
+</section>
+<!-- Vision Section (Bento Grid) -->
+<section class="py-stack-lg max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 bg-surface-container-low p-stack-md rounded-xl border border-secondary/10 flex flex-col justify-center">
+<span class="text-secondary font-label-caps text-label-caps mb-4">رؤيتنا ورسالتنا</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">نحو مجتمع ينمو بالقرآن</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        نسعى في مسار لنكون المنارة الرائدة في تعليم كتاب الله وسنة رسوله، من خلال بيئة تعليمية هادئة تحفز على التركيز والإبداع، وباستخدام أحدث التقنيات التربوية.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="verified">verified</span>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">اعتماد رسمي</h4>
+<p class="text-on-surface-variant">مناهج معتمدة من نخبة المتخصصين.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="school">school</span>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">نخبة المعلمين</h4>
+<p class="text-on-surface-variant">كوادر تعليمية ذات خبرة وكفاءة عالية.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 h-full min-h-[400px] rounded-xl overflow-hidden relative">
+<img alt="Islamic studies" class="w-full h-full object-cover" data-alt="A high-quality close-up of an open Quran on a wooden lectern (Rehal) in a sun-drenched library with classic Islamic architecture. The lighting is golden and soft, emphasizing the texture of the paper and the intricate calligraphy. The background shows blurred bookshelves filled with leather-bound scholarly texts, creating an atmosphere of deep academic study and spiritual focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8atn1ip9F4RDp9QsopvrQRDgg4Q0No-r8oAakQyU684newXBzBmM4vsgvtcnxxQ6Uu97a6BrUoDz5vc60CMDrtK_UCwU1FMGCijzZFABkhD2Z0zchIGPvBfEqsXncQj7DbqSfQzB-XHpuBa9jSbksHJpcvjXhw8-57GdjGfh84EaVp_FM97JnjJfUFk2Yz0fT1W2H_sDtJOPrhYcZudy9WI8hvzdf2WscFpNe3HOX5IHIjZAYA19wePHtTAVnXPUjfRpCOhjqSWt9"/>
+<div class="absolute inset-0 bg-primary/20 hover:bg-transparent transition-all duration-500"></div>
+</div>
+</div>
+</section>
+<!-- Services Section (Serene Cards) -->
+<section class="py-stack-lg bg-surface-container-highest/30">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">برامجنا التعليمية</h3>
+<div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-lg">
+<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="menu_book">menu_book</span>
+</div>
+<h4 class="font-title-sm text-title-sm text-primary mb-4">تحفيظ القرآن الكريم</h4>
+<p class="text-on-surface-variant mb-6">برامج مخصصة لمختلف الفئات العمرية، مع التركيز على التجويد والترتيل الصحيح بروايات متعددة.</p>
+<a class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">
+<span>اكتشف المزيد</span>
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-lg">
+<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="library_books">library_books</span>
+</div>
+<h4 class="font-title-sm text-title-sm text-primary mb-4">العلوم الشرعية</h4>
+<p class="text-on-surface-variant mb-6">دراسة الفقه، التفسير، الحديث، والعقيدة، من خلال مناهج أكاديمية ميسرة تعزز الفهم الوسطي.</p>
+<a class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">
+<span>اكتشف المزيد</span>
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-secondary/20 hover:border-secondary transition-all group hover:shadow-lg">
+<div class="w-16 h-16 bg-primary-fixed rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="stars">stars</span>
+</div>
+<h4 class="font-title-sm text-title-sm text-primary mb-4">تأهيل الدعاة</h4>
+<p class="text-on-surface-variant mb-6">برنامج مكثف لتطوير المهارات القيادية والخطابية، مع التركيز على أساليب الدعوة المعاصرة.</p>
+<a class="text-secondary font-bold flex items-center gap-2 hover:gap-4 transition-all" href="#">
+<span>اكتشف المزيد</span>
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-stack-lg">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-primary-container rounded-3xl p-stack-lg relative overflow-hidden flex flex-col items-center text-center">
+<div class="absolute inset-0 islamic-pattern opacity-10"></div>
+<div class="relative z-10 space-y-stack-sm max-w-2xl">
+<h3 class="font-headline-md text-headline-md text-white">هل أنت مستعد لبدء رحلتك؟</h3>
+<p class="text-primary-fixed font-body-lg text-body-lg">انضم إلى مئات الطلاب الذين اختاروا مسار التعليمي ليكون بوصلتهم في تعلم العلوم الشرعية.</p>
+<div class="pt-8">
+<button onclick="openModal()" class="bg-[#C5A059] text-primary px-10 py-5 rounded-full font-headline-md text-title-sm font-bold shadow-xl hover:bg-secondary-fixed transition-all hover:-translate-y-1">
+                                سجل بياناتك الآن
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Navigation Shell -->
+<footer class="bg-[#2D3924] dark:bg-stone-950 w-full py-12 px-8 flex flex-col items-center text-center space-y-6 border-t-4 border-[#C5A059]">
+<div class="font-['Noto_Serif'] text-[#fdfcfb] font-bold text-xl">مركز مسار التعليمي</div>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors" href="#">سياسة الخصوصية</a>
+<a class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors" href="#">شروط الاستخدام</a>
+<a class="font-['Noto_Serif'] text-sm leading-relaxed text-stone-300 hover:text-[#C5A059] transition-colors" href="#">خريطة الموقع</a>
+</nav>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#C5A059] cursor-pointer hover:text-white transition-colors" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-[#C5A059] cursor-pointer hover:text-white transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-[#C5A059] cursor-pointer hover:text-white transition-colors" data-icon="mail">mail</span>
+</div>
+<div class="font-['Noto_Serif'] text-sm leading-relaxed text-[#C5A059] border-t border-[#fdfcfb]/10 pt-6 w-full max-w-2xl">
+            © 2024 مركز مسار التعليمي. جميع الحقوق محفوظة. الأستاذ جمال عبدالناصر 01016337993
+        </div>
+</footer>
+
+<!-- Registration Modal -->
+<div id="registerModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modalContent">
+        <!-- Modal Header -->
+        <div class="bg-primary-container p-6 rounded-t-2xl relative">
+            <button onclick="closeModal()" class="absolute left-4 top-4 text-white/80 hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <h3 class="font-headline-md text-headline-md text-white text-center">سجل معنا الآن</h3>
+            <p class="text-primary-fixed text-center mt-2">ابدأ رحلتك التعليمية في مركز مسار</p>
+        </div>
+        
+        <!-- Modal Body -->
+        <div class="p-6 space-y-5">
+            <form id="registrationForm" onsubmit="submitForm(event)">
+                <!-- Full Name -->
+                <div>
+                    <label class="block text-primary font-title-sm text-title-sm mb-2">الاسم الكامل *</label>
+                    <input type="text" name="fullName" required 
+                        class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:border-secondary focus:outline-none transition-colors"
+                        placeholder="أدخل اسمك الكامل">
+                </div>
+                
+                <!-- Phone Number -->
+                <div>
+                    <label class="block text-primary font-title-sm text-title-sm mb-2">رقم الهاتف *</label>
+                    <input type="tel" name="phone" required 
+                        class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:border-secondary focus:outline-none transition-colors"
+                        placeholder="مثال: 01012345678">
+                </div>
+                
+                <!-- Email (Optional) -->
+                <div>
+                    <label class="block text-primary font-title-sm text-title-sm mb-2">البريد الإلكتروني</label>
+                    <input type="email" name="email" 
+                        class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:border-secondary focus:outline-none transition-colors"
+                        placeholder="example@email.com">
+                </div>
+                
+                <!-- Age -->
+                <div>
+                    <label class="block text-primary font-title-sm text-title-sm mb-2">السن *</label>
+                    <input type="number" name="age" required min="5" max="80"
+                        class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:border-secondary focus:outline-none transition-colors"
+                        placeholder="أدخل عمرك">
+                </div>
+                
+                <!-- Program Selection -->
+                <div>
+                    <label class="block text-primary font-title-sm text-title-sm mb-2">البرنامج المفضل *</label>
+                    <select name="program" required 
+                        class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:border-secondary focus:outline-none transition-colors">
+                        <option value="">اختر البرنامج</option>
+                        <option value="quran">تحفيظ القرآن الكريم</option>
+                        <option value="sharia">العلوم الشرعية</option>
+                        <option value="daawa">تأهيل الدعاة</option>
+                        <option value="kids">برنامج الأطفال</option>
+                    </select>
+                </div>
+                
+                <!-- Preferred Time -->
+                <div>
+                    <label class="block text-primary font-title-sm text-title-sm mb-2">الوقت المناسب</label>
+                    <select name="preferredTime" 
+                        class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:border-secondary focus:outline-none transition-colors">
+                        <option value="">اختر الوقت المناسب</option>
+                        <option value="morning">الفترة الصباحية</option>
+                        <option value="afternoon">فترة الظهيرة</option>
+                        <option value="evening">فترة المساء</option>
+                    </select>
+                </div>
+                
+                <!-- Notes -->
+                <div>
+                    <label class="block text-primary font-title-sm text-title-sm mb-2">ملاحظات إضافية</label>
+                    <textarea name="notes" rows="3"
+                        class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface focus:border-secondary focus:outline-none transition-colors resize-none"
+                        placeholder="أي ملاحظات أو استفسارات..."></textarea>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" id="submitBtn"
+                    class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-title-sm text-title-sm hover:opacity-90 transition-all flex items-center justify-center gap-2 mt-6">
+                    <span>إرسال البيانات</span>
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+                
+                <!-- Loading State -->
+                <div id="loadingState" class="hidden w-full bg-secondary/70 text-on-secondary py-4 rounded-xl font-title-sm text-title-sm flex items-center justify-center gap-2 mt-6">
+                    <span class="material-symbols-outlined animate-spin">sync</span>
+                    <span>جاري الإرسال...</span>
+                </div>
+                
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-4 rounded-xl text-center">
+                    <span class="material-symbols-outlined text-4xl mb-2">check_circle</span>
+                    <p class="font-title-sm text-title-sm">تم التسجيل بنجاح!</p>
+                    <p class="text-sm mt-1">سنتواصل معك قريباً</p>
+                </div>
+                
+                <!-- Error Message -->
+                <div id="errorMessage" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-4 rounded-xl text-center">
+                    <span class="material-symbols-outlined text-4xl mb-2">error</span>
+                    <p class="font-title-sm text-title-sm">حدث خطأ!</p>
+                    <p class="text-sm mt-1">يرجى المحاولة مرة أخرى</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Modal Functions
+    function openModal() {
+        const modal = document.getElementById('registerModal');
+        const content = document.getElementById('modalContent');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        const modal = document.getElementById('registerModal');
+        const content = document.getElementById('modalContent');
+        content.classList.remove('scale-100', 'opacity-100');
+        content.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            resetForm();
+        }, 300);
+    }
+    
+    // Close modal when clicking outside
+    document.getElementById('registerModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !document.getElementById('registerModal').classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+    
+    function resetForm() {
+        document.getElementById('registrationForm').reset();
+        document.getElementById('submitBtn').classList.remove('hidden');
+        document.getElementById('loadingState').classList.add('hidden');
+        document.getElementById('successMessage').classList.add('hidden');
+        document.getElementById('errorMessage').classList.add('hidden');
+    }
+    
+    // Form Submission
+    function submitForm(e) {
+        e.preventDefault();
+        
+        // Replace with your Google Apps Script Web App URL
+        // To set this up:
+        // 1. Go to https://script.google.com
+        // 2. Create new project with the script provided below
+        // 3. Deploy as Web App
+        // 4. Copy the URL and paste it here
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzuL_tw5AWmbbqbktF3VAzHTRuXIbUEezk4SboPo4kB6ANQq6IMgxwSobQfOKevcsPEw/exec';
+        
+        const formData = new FormData(e.target);
+        const data = {
+            fullName: formData.get('fullName'),
+            phone: formData.get('phone'),
+            email: formData.get('email'),
+            age: formData.get('age'),
+            program: formData.get('program'),
+            preferredTime: formData.get('preferredTime'),
+            notes: formData.get('notes'),
+            timestamp: new Date().toLocaleString('ar-EG')
+        };
+        
+        // Show loading
+        document.getElementById('submitBtn').classList.add('hidden');
+        document.getElementById('loadingState').classList.remove('hidden');
+        
+        // Send data to Google Sheets
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(result => {
+            document.getElementById('loadingState').classList.add('hidden');
+            if (result.result === 'success') {
+                document.getElementById('successMessage').classList.remove('hidden');
+                setTimeout(closeModal, 3000);
+            } else {
+                document.getElementById('submitBtn').classList.remove('hidden');
+                document.getElementById('errorMessage').classList.remove('hidden');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('loadingState').classList.add('hidden');
+            document.getElementById('submitBtn').classList.remove('hidden');
+            document.getElementById('errorMessage').classList.remove('hidden');
+        });
+    }
+</script>
+
+</body></html>
